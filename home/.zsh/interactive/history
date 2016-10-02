@@ -1,0 +1,4 @@
+#! zsh
+export HISTFILE=~/.zsh/zhistory
+export HISTSIZE=50000
+export SAVEHIST=$HISTSIZE

@@ -1,0 +1,5 @@
+#! zsh
+fpath=(~/.zsh/functions ~/.homesick/repos/homeshick/completions $fpath)
+
+# filter out duplicates, nonexistent directories, and . (the current directory)
+fpath=(${(u)^fpath:#.}(N))

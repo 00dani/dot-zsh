@@ -1,0 +1,3 @@
+#! zsh
+export FZF_CTRL_R_OPTS="--sort"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

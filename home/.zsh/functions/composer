@@ -1,0 +1,5 @@
+#! zsh
+# Composer runs significantly faster if xdebug is unloaded.
+local conf="$(php -r 'echo dirname(php_ini_loaded_file());')"
+(cd $conf; rsync -ar --delete-after --exclude ext-xdebug.ini conf.d/ conf-without-xdebug.d/)
+PHP_INI_SCAN_DIR=$conf/conf-without-xdebug.d php =composer "$@"

@@ -1,0 +1,34 @@
+#! zsh
+
+local newbins=()
+
+# go
+[[ -z $GOPATH ]] && export GOPATH=~/.go
+newbins+=(~/.go/bin)
+
+# haskell
+newbins+=(~/.cabal/bin ~/Library/Haskell/bin)
+
+# ooc
+if whence rock >/dev/null; then
+	export OOC_LIBS=/usr/local/Cellar/rock/0.9.10:~/.ooc
+	newbins+=(~/.ooc/sam)
+fi
+
+# ruby
+newbins+=(~/.gem/ruby/*/bin)
+
+# perl
+export PERL_LOCAL_LIB_ROOT="$HOME/perl5:$PERL_LOCAL_LIB_ROOT"
+export PERL_MB_OPT="--install_base '$HOME/perl5'";
+export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
+export PERL5LIB="$HOME/perl5/lib/perl5:$HOME/.perllibs:$PERL5LIB";
+newbins+=(~/perl5/bin)
+
+# php
+newbins+=(~/.composer/vendor/bin)
+
+# python
+export -UT PYTHONPATH pythonpath
+
+path=($newbins $path)

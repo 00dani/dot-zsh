@@ -1,0 +1,12 @@
+#! zsh
+bindkey $terminfo[kcbt] reverse-menu-complete
+
+autoload -Uz bracketed-paste-magic 
+zle -N bracketed-paste bracketed-paste-magic
+
+autoload -Uz url-quote-magic
+url-quote-magic-with-highlight() { 
+	url-quote-magic
+	_zsh_highlight
+}
+zle -N self-insert url-quote-magic-with-highlight

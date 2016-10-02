@@ -1,0 +1,26 @@
+#! zsh
+if [[ ! -f ~/.zplug/repos/zplug/zplug/init.zsh ]]; then
+	git clone https://github.com/zplug/zplug ~/.zplug/repos/zplug/zplug
+fi
+source ~/.zplug/repos/zplug/zplug/init.zsh 
+zplug zplug/zplug
+zplug willghatch/zsh-saneopt
+
+zplug bobthecow/git-flow-completion
+zplug mafredri/zsh-async
+zplug micha/resty
+zplug rupa/z, use:z.sh
+zplug sharat87/zsh-vim-mode
+zplug sindresorhus/pure
+zplug supercrabtree/k
+zplug zsh-users/zsh-syntax-highlighting, nice:10
+zplug zsh-users/zsh-completions, nice:11
+zplug zsh-users/zsh-history-substring-search, nice:9
+zplug trapd00r/LS_COLORS, hook-load:apply-trapd00r-colors
+apply-trapd00r-colors() {
+	eval $(dircolors -b $ZPLUG_REPOS/trapd00r/LS_COLORS/LS_COLORS)
+	zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+}
+
+zplug check || zplug install
+zplug load

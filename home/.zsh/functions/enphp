@@ -1,0 +1,2 @@
+#! zsh
+cat $argv | php -r 'echo serialize( json_decode( file_get_contents( "php://stdin" ) ) );'

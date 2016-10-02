@@ -1,0 +1,17 @@
+#! zsh
+alias has_command='whence >/dev/null'
+alias ls="ls -F --color=auto"
+alias lsl="ls -lh"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias pseudo="sudo"
+if has_command xdg-open; then
+	alias ]='xdg-open'
+else
+	alias ]='open'
+fi
+
+# make sure ELinks can detect when it's in tmux
+alias elinks="STY= elinks"
+
+has_command hub && alias git=hub

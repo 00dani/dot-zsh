@@ -1,0 +1,17 @@
+#! zsh
+
+path=(/usr/local/bin $path)
+if whence brew >/dev/null; then
+	path=(
+		/usr/local/opt/coreutils/libexec/gnubin
+		/usr/local/sbin
+		~/Library/Python/*/bin
+		$path
+	)
+fi
+
+path=(/usr/local/texlive/20*/bin/universal-* $path)
+path=(~/bin ~/.bin ~/.local/bin $path)
+
+# filter out duplicates, nonexistent directories, and . (the current directory)
+path=(${(u)^path:#.}(N))
