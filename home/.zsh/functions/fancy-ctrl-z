@@ -1,0 +1,7 @@
+#! zsh
+if [[ -z $BUFFER && -n $jobstates ]]; then
+	BUFFER=" fg"
+	zle accept-line
+else
+	zle self-insert '^Z'
+fi
