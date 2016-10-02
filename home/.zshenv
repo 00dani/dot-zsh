@@ -1,1 +1,1 @@
-for f in ~/.zsh/all/*; source $f
+for f in ~/.zsh/all/*(-.N); source $f

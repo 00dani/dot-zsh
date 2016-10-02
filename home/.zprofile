@@ -1,1 +1,1 @@
-for f in ~/.zsh/login/*; source $f
+for f in ~/.zsh/login/*(-.N); source $f
