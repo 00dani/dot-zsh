@@ -1,3 +1,0 @@
-#! zsh
-path+=(~/.homesick/repos/homeshick/bin)
-fpath+=(~/.homesick/repos/homeshick/completions)
