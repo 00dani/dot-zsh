@@ -1,8 +1,9 @@
 #! zsh
-if [[ ! -f ~/.zplug/repos/zplug/zplug/init.zsh ]]; then
-	git clone https://github.com/zplug/zplug ~/.zplug/repos/zplug/zplug
+export ZPLUG_HOME=$XDG_CACHE_HOME/zplug
+if [[ ! -f $ZPLUG_HOME/repos/zplug/zplug/init.zsh ]]; then
+	git clone https://github.com/zplug/zplug $ZPLUG_HOME/repos/zplug/zplug
 fi
-source ~/.zplug/repos/zplug/zplug/init.zsh
+source $ZPLUG_HOME/repos/zplug/zplug/init.zsh
 zplug zplug/zplug
 zplug willghatch/zsh-saneopt
 
