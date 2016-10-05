@@ -1,0 +1,3 @@
+#! zsh
+_Z_DATA=$XDG_DATA_HOME/z/z
+mkdir -p ${_Z_DATA:h}

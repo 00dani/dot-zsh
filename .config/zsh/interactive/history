@@ -1,5 +1,6 @@
 #! zsh
 HISTFILE=$XDG_DATA_HOME/zsh/history
+mkdir -p ${HISTFILE:h}
 HISTSIZE=50000
 SAVEHIST=$HISTSIZE
 
