@@ -22,6 +22,6 @@ apply-trapd00r-colors() {
 	zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 }
 
-zplug ~/.zsh/interactive/\*, from:local
+zplug $ZDOTDIR/interactive/\*, from:local
 zplug check || zplug install
 zplug load

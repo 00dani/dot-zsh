@@ -1,5 +1,5 @@
 #! zsh
-HISTFILE=~/.zsh/zhistory
+HISTFILE=$XDG_DATA_HOME/zsh/history
 HISTSIZE=50000
 SAVEHIST=$HISTSIZE
 
