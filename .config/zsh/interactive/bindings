@@ -1,4 +1,7 @@
 #! zsh
+zle-line-init() {}
+zle -N zle-line-init
+
 autoload -Uz select-word-style
 select-word-style shell
 
