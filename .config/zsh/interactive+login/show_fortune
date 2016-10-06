@@ -1,2 +1,2 @@
 #! zsh
-fortune ~/.quotes/quotes | ponysay
+fortune $XDG_CACHE_HOME/sav-quotes/quotes | ponysay
