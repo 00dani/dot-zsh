@@ -5,12 +5,12 @@ if whence brew >/dev/null; then
 	path=(
 		/usr/local/opt/coreutils/libexec/gnubin
 		/usr/local/sbin
-		~/Library/Python/*/bin
+		~/Library/Python/*/bin(N)
 		$path
 	)
 fi
 
-path=(/usr/local/texlive/20*/bin/universal-* $path)
+path=(/usr/local/texlive/20*/bin/universal-*(N) $path)
 path=(~/bin ~/.bin ~/.local/bin $path)
 
 # filter out duplicates, nonexistent directories, and . (the current directory)

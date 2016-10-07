@@ -1,6 +1,6 @@
 #! zsh
 
-local newbins=()
+local -a newbins
 
 # go
 [[ -z $GOPATH ]] && export GOPATH=~/.go
@@ -16,7 +16,7 @@ if whence rock >/dev/null; then
 fi
 
 # ruby
-newbins+=(~/.gem/ruby/*/bin)
+newbins+=(~/.gem/ruby/*/bin(N))
 
 # perl
 export PERL_LOCAL_LIB_ROOT="$HOME/perl5:$PERL_LOCAL_LIB_ROOT"
