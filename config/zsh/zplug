@@ -1,5 +1,5 @@
 #! zsh
-export ZPLUG_HOME=$XDG_CACHE_HOME/zplug
+export ZPLUG_HOME=$XDG_CACHE_HOME/zsh/zplug
 if [[ ! -f $ZPLUG_HOME/repos/zplug/zplug/init.zsh ]]; then
 	git clone https://github.com/zplug/zplug $ZPLUG_HOME/repos/zplug/zplug
 fi
