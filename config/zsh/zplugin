@@ -1,0 +1,32 @@
+#! zsh
+export ZPLG_HOME=$XDG_CACHE_HOME/zsh/zplugin
+if [[ ! -f $ZPLG_HOME/bin/zplugin.zsh ]]; then
+	git clone https://github.com/psprint/zplugin $ZPLG_HOME/bin
+	zcompile $ZPLG_HOME/bin/zplugin.zsh
+fi
+source $ZPLG_HOME/bin/zplugin.zsh
+load=light
+
+zplugin $load willghatch/zsh-saneopt
+
+zplugin $load bobthecow/git-flow-completion
+zplugin $load mafredri/zsh-async
+zplugin $load sindresorhus/pure
+
+zplugin $load trapd00r/LS_COLORS
+LS_COLORS_DIR=$ZPLG_PLUGINS_DIR/trapd00r---LS_COLORS
+if [[ ! $LS_COLORS_DIR/LS_COLORS.plugin.zsh -nt $LS_COLORS_DIR/LS_COLORS ]]; then
+	dircolors -b $LS_COLORS_DIR/LS_COLORS > $LS_COLORS_DIR/LS_COLORS.plugin.zsh
+	zplugin compile trapd00r/LS_COLORS
+	source $LS_COLORS_DIR/LS_COLORS.plugin.zsh
+fi
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+zplugin $load micha/resty
+zplugin $load rupa/z
+zplugin $load supercrabtree/k
+
+zplugin $load zsh-users/zsh-completions
+zplugin $load zsh-users/zsh-syntax-highlighting
+zplugin $load zsh-users/zsh-history-substring-search
+zplugin $load sharat87/zsh-vim-mode
