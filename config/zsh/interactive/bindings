@@ -32,3 +32,13 @@ zle -N bracketed-paste bracketed-paste-magic
 autoload -Uz url-quote-magic
 url-quote-magic-with-highlight() { url-quote-magic; _zsh_highlight }
 zle -N self-insert url-quote-magic-with-highlight
+
+__fzf-z() {
+	z -l | tac | cut -c 12- | fzf --preview 'tree -FCL 2 {}'
+}
+fzf-z() {
+	LBUFFER+="$(__fzf-z)"
+	zle redisplay
+}
+zle -N fzf-z
+bindkey '^G' fzf-z
