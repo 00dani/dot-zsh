@@ -1,7 +1,8 @@
 source $ZDOTDIR/zplugin
-for f in $ZDOTDIR/interactive/*; [[ -f $f ]] && source $f
+for f in $ZDOTDIR/interactive/*(N); source $f
 
-autoload -Uz compinit
+autoload -Uz compinit zrecompile
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
+([[ $_comp_dumpfile.zwc -nt $_comp_dumpfile ]] || zcompile $_comp_dumpfile) &!
 
-[[ -o login ]] && for f in $ZDOTDIR/interactive+login/*(-.N); source $f
+[[ -o login ]] && for f in $ZDOTDIR/interactive+login/*(N); source $f
