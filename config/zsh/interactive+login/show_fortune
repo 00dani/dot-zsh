@@ -1,2 +1,4 @@
 #! zsh
-fortune $XDG_CACHE_HOME/sav-quotes/quotes | ponysay
+(( $+commands[fortune] )) || return
+for say in ponysay cowsay cat; (( $+commands[$say] )) && break
+fortune $XDG_CACHE_HOME/sav-quotes/quotes | $say
