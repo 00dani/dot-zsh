@@ -10,8 +10,13 @@ load=light
 zplugin $load willghatch/zsh-saneopt
 
 zplugin $load bobthecow/git-flow-completion
+zplugin $load djui/alias-tips
 zplugin $load mafredri/zsh-async
+zplugin $load micha/resty
+zplugin $load mollifier/cd-gitroot
+zplugin $load rupa/z
 zplugin $load sindresorhus/pure
+zplugin $load supercrabtree/k
 
 zplugin $load trapd00r/LS_COLORS
 LS_COLORS_DIR=$ZPLG_PLUGINS_DIR/trapd00r---LS_COLORS
@@ -21,10 +26,6 @@ if [[ ! $LS_COLORS_DIR/LS_COLORS.plugin.zsh -nt $LS_COLORS_DIR/LS_COLORS ]]; the
 	source $LS_COLORS_DIR/LS_COLORS.plugin.zsh
 fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-zplugin $load micha/resty
-zplugin $load rupa/z
-zplugin $load supercrabtree/k
 
 zplugin $load zsh-users/zsh-completions
 zplugin $load zsh-users/zsh-syntax-highlighting
