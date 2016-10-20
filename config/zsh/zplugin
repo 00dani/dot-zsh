@@ -25,7 +25,6 @@ if [[ ! $LS_COLORS_DIR/LS_COLORS.plugin.zsh -nt $LS_COLORS_DIR/LS_COLORS ]]; the
 	zplugin compile trapd00r/LS_COLORS
 	source $LS_COLORS_DIR/LS_COLORS.plugin.zsh
 fi
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 zplugin $load zsh-users/zsh-completions
 zplugin $load zsh-users/zsh-syntax-highlighting
