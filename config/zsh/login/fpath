@@ -1,5 +1,7 @@
 #! zsh
 fpath=($ZDOTDIR/functions $fpath)
 
-# filter out duplicates, nonexistent directories, and . (the current directory)
 fpath=(${(u)^fpath:#.}(N))
+# FPATH isn't exported by default like PATH is - to inherit the setting in
+# non-login shells, we need to export it ourselves.
+typeset -x FPATH
