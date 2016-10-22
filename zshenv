@@ -7,7 +7,7 @@
 # destroyed when the user logs out but close enough. The reason for suffixing
 # /xdg-$USER is that TMPDIR does not necessarily belong to the current user
 # exclusively (although it does under MacOS and PAM).
-[[ -z $XDG_RUNTIME_DIR ]] && XDG_RUNTIME_DIR=${TMPDIR%/}/xdg-$USER
+[[ -z $XDG_RUNTIME_DIR ]] && XDG_RUNTIME_DIR=${${TMPDIR-/tmp}%/}/xdg-$LOGNAME
 [[ -d $XDG_RUNTIME_DIR ]] || mkdir -p $XDG_RUNTIME_DIR
 export XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME XDG_RUNTIME_DIR
 
