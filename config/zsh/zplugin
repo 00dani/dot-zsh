@@ -10,7 +10,6 @@ load=light
 zplugin $load willghatch/zsh-saneopt
 
 zplugin $load bobthecow/git-flow-completion
-zplugin $load djui/alias-tips
 zplugin $load mafredri/zsh-async
 zplugin $load micha/resty
 zplugin $load mollifier/cd-gitroot
