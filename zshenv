@@ -8,6 +8,7 @@
 # /xdg-$USER is that TMPDIR does not necessarily belong to the current user
 # exclusively (although it does under MacOS and PAM).
 [[ -z $XDG_RUNTIME_DIR ]] && XDG_RUNTIME_DIR=${TMPDIR%/}/xdg-$USER
+[[ -d $XDG_RUNTIME_DIR ]] || mkdir -p $XDG_RUNTIME_DIR
 export XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME XDG_RUNTIME_DIR
 
 # The real zsh config lives in XDG_CONFIG_HOME! ;)
