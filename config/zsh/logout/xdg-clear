@@ -1,0 +1,2 @@
+#! zsh
+(( $(w -h $LOGNAME | wc -l) == 1 )) && rm -rf $XDG_RUNTIME_DIR

@@ -1,0 +1,2 @@
+#! zsh
+for f in $ZDOTDIR/logout/*(N); source $f
