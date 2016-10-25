@@ -15,3 +15,4 @@ alias cdu=cd-gitroot
 alias elinks="STY= elinks"
 
 (( $+commands[hub] )) && alias git=hub
+alias https='http --default-scheme=https'
