@@ -20,11 +20,14 @@ fi
 newbins+=(~/.gem/ruby/*/bin(N))
 
 # perl
-export PERL_LOCAL_LIB_ROOT="$HOME/perl5:$PERL_LOCAL_LIB_ROOT"
-export PERL_MB_OPT="--install_base '$HOME/perl5'";
-export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
-export PERL5LIB="$HOME/perl5/lib/perl5:$HOME/.perllibs:$PERL5LIB";
-newbins+=(~/perl5/bin)
+export -UT PERL_LOCAL_LIB_ROOT perl_local_lib_root
+export -UT PERL5LIB perl5lib
+perl_local_lib_root=($XDG_DATA_HOME/perl5 $perl_local_lib_root)
+perl5lib=($XDG_DATA_HOME/perl5/lib/perl5 $perl5lib)
+newbins+=($XDG_DATA_HOME/perl5/bin)
+
+export PERL_MB_OPT="--install_base '$XDG_DATA_HOME/perl5'";
+export PERL_MM_OPT="INSTALL_BASE=$XDG_DATA_HOME/perl5";
 
 # php
 # I have no idea why Composer decided that the right place to install global
