@@ -10,7 +10,7 @@ newbins+=(~/.go/bin)
 newbins+=(~/.cabal/bin ~/Library/Haskell/bin)
 
 # ooc
-if whence rock >/dev/null; then
+if (( $+commands[rock] )); then
 	export -UT OOC_LIBS ooc_libs
 	ooc_libs=(/usr/local/Cellar/rock/*(N) $XDG_DATA_HOME/ooc)
 	newbins+=($XDG_DATA_HOME/ooc/sam)
