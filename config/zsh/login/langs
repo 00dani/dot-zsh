@@ -26,7 +26,10 @@ export PERL5LIB="$HOME/perl5/lib/perl5:$HOME/.perllibs:$PERL5LIB";
 newbins+=(~/perl5/bin)
 
 # php
-newbins+=(~/.composer/vendor/bin)
+# I have no idea why Composer decided that the right place to install global
+# packages is $XDG_CONFIG_HOME. It *clearly* should be $XDG_DATA_HOME. But
+# there you go, I guess.
+newbins+=($XDG_CONFIG_HOME/composer/vendor/bin)
 
 # python
 export -UT PYTHONPATH pythonpath
