@@ -1,0 +1,8 @@
+#! zsh
+local out=("${(@f)$(echo -n 'password: ' && pass show $1)}") field
+
+for field in $out; do
+	field=(${(s/: /)field})
+	set -A $2 ${(kv)${(P)2}} $field
+	# Above is equivalent to $2+=($field) except it's legal syntax ;)
+done
