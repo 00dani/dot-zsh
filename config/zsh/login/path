@@ -9,7 +9,7 @@ if (( $+commands[brew] )); then
 	)
 fi
 
-path=(/usr/local/texlive/20*/bin/universal-*(N) $path)
+path=(/usr/local/texlive/20*/bin/*(N) $path)
 path=(~/bin ~/.bin ~/.local/bin $path)
 
 # Filter out nonexistent directories, . (the current directory), and duplicate
