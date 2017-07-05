@@ -1,5 +1,8 @@
 #! zsh
-export ZPLG_HOME=$XDG_CACHE_HOME/zsh/zplugin
+typeset -A ZPLGM
+ZPLG_HOME=$XDG_CACHE_HOME/zsh/zplugin
+ZPLGM[HOME_DIR]=$ZPLG_HOME
+
 if [[ ! -f $ZPLG_HOME/bin/zplugin.zsh ]]; then
 	git clone https://github.com/psprint/zplugin $ZPLG_HOME/bin
 	zcompile $ZPLG_HOME/bin/zplugin.zsh
@@ -19,7 +22,7 @@ zplugin $load sindresorhus/pure
 zplugin $load supercrabtree/k
 
 zplugin $load trapd00r/LS_COLORS
-LS_COLORS_DIR=$ZPLG_PLUGINS_DIR/trapd00r---LS_COLORS
+LS_COLORS_DIR=$ZPLGM[PLUGINS_DIR]/trapd00r---LS_COLORS
 if [[ ! $LS_COLORS_DIR/LS_COLORS.plugin.zsh -nt $LS_COLORS_DIR/LS_COLORS ]]; then
 	dircolors -b $LS_COLORS_DIR/LS_COLORS > $LS_COLORS_DIR/LS_COLORS.plugin.zsh
 	zplugin compile trapd00r/LS_COLORS
