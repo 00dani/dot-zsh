@@ -1,7 +1,7 @@
 #! zsh
-if [[ -f ~/.fzf.zsh ]]; then
+if [[ -f $XDG_DATA_HOME/zsh/fzf.zsh ]]; then
 	export FZF_CTRL_R_OPTS="--sort"
-	source ~/.fzf.zsh
+	source $XDG_DATA_HOME/zsh/fzf.zsh
 else
 	bindkey '^R' history-incremental-search-backward
 fi
