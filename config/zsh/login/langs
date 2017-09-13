@@ -8,6 +8,7 @@ newbins+=(~/.go/bin)
 
 # haskell
 newbins+=(~/.cabal/bin ~/Library/Haskell/bin)
+export STACK_ROOT=$XDG_DATA_HOME/stack
 
 # ooc
 if (( $+commands[rock] )); then
