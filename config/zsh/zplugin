@@ -13,7 +13,6 @@ load=light
 zplugin $load willghatch/zsh-saneopt
 
 zplugin $load asdf-vm/asdf
-zplugin $load bobthecow/git-flow-completion
 zplugin $load mafredri/zsh-async
 zplugin $load micha/resty
 zplugin $load mollifier/cd-gitroot
