@@ -22,7 +22,6 @@ zmodload zsh/complist # so that listscroll is defined
 zstyle :completion:* menu select
 zstyle :completion:* list-prompt ' '
 zstyle :completion:* select-prompt ' %F{blue}-- %m --%f'
-bindkey -M listscroll '^I' 'send-break; self-insert'
 
 # Permit expensive completions to cache info and therefore be usable.
 zstyle :completion::complete:* use-cache on

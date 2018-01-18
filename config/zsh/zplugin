@@ -29,6 +29,4 @@ if [[ ! $LS_COLORS_DIR/LS_COLORS.plugin.zsh -nt $LS_COLORS_DIR/LS_COLORS ]]; the
 fi
 
 zplugin $load zsh-users/zsh-completions
-zplugin $load zsh-users/zsh-syntax-highlighting
-zplugin $load zsh-users/zsh-history-substring-search
-zplugin $load sharat87/zsh-vim-mode
+zplugin ice silent wait!1; zplugin $load zsh-users/zsh-syntax-highlighting

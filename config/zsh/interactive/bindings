@@ -1,4 +1,5 @@
 #! zsh
+_zsh_highlight() {}
 zle-line-init() {}
 zle -N zle-line-init
 
