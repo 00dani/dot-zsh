@@ -24,7 +24,7 @@ if [[ ! $LS_COLORS_DIR/LS_COLORS.plugin.zsh -nt $LS_COLORS_DIR/LS_COLORS ]]; the
 	source $LS_COLORS_DIR/LS_COLORS.plugin.zsh
 fi
 
-zplugin $load zsh-users/zsh-completions
+zplugin ice blockf; zplugin $load zsh-users/zsh-completions
 
 zplugin ice silent wait1; zplugin $load mollifier/cd-gitroot
 zplugin ice silent wait1; zplugin $load micha/resty
