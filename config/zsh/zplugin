@@ -12,7 +12,6 @@ load=light
 
 zplugin $load willghatch/zsh-saneopt
 
-zplugin $load asdf-vm/asdf
 zplugin $load mafredri/zsh-async
 zplugin $load rupa/z
 zplugin $load sindresorhus/pure
