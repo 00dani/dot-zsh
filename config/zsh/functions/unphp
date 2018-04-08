@@ -1,2 +1,0 @@
-#! zsh
-cat $argv | php -r 'echo json_encode( unserialize( file_get_contents( "php://stdin" ) ) );'
