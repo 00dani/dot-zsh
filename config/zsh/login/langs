@@ -20,6 +20,9 @@ fi
 # ruby
 newbins+=(~/.gem/ruby/*/bin(N))
 
+# rust
+newbins+=(~/.cargo/bin)
+
 # perl
 export -UT PERL_LOCAL_LIB_ROOT perl_local_lib_root
 export -UT PERL5LIB perl5lib
