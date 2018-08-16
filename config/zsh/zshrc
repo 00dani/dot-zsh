@@ -1,8 +1,7 @@
 source $ZDOTDIR/zplugin
 for f in $ZDOTDIR/interactive/*(N); source $f
 
-autoload -Uz zrecompile
-zpcompinit
+zpcompinit && zpcdreplay
 ([[ $ZPGLM[ZCOMPDUMP_PATH].zwc -nt $ZPGLM[ZCOMPDUMP_PATH] ]] || zcompile $ZPLGM[ZCOMPDUMP_PATH]) &!
 
 [[ -o login ]] && for f in $ZDOTDIR/interactive+login/*(N); source $f
