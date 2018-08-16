@@ -17,13 +17,7 @@ zplugin $load mafredri/zsh-async
 zplugin $load rupa/z
 zplugin $load sindresorhus/pure
 
-zplugin $load trapd00r/LS_COLORS
-LS_COLORS_DIR=$ZPLGM[PLUGINS_DIR]/trapd00r---LS_COLORS
-if [[ ! $LS_COLORS_DIR/LS_COLORS.plugin.zsh -nt $LS_COLORS_DIR/LS_COLORS ]]; then
-	dircolors -b $LS_COLORS_DIR/LS_COLORS > $LS_COLORS_DIR/LS_COLORS.plugin.zsh
-	zplugin compile trapd00r/LS_COLORS
-	source $LS_COLORS_DIR/LS_COLORS.plugin.zsh
-fi
+zplugin ice atclone'dircolors -b LS_COLORS > c.zsh' atpull'%atclone' pick'c.zsh'; zplugin $load trapd00r/LS_COLORS
 
 zplugin ice blockf; zplugin $load zsh-users/zsh-completions
 
