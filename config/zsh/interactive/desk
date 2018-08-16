@@ -1,4 +1,13 @@
 #! zsh
+alias d=desk
+alias d.='desk .'
+
+# Conveniently, the current desk never changes within a single shell session,
+# so we can safely just set this once during shell startup.
+psvar[1]=$DESK_NAME
+# Extend the prompt with desk name display.
+PROMPT="%(V.%F{242}%v%f .)$PROMPT"
+
 export DESK_DIR=$XDG_CONFIG_HOME/desk
 if [[ -n $DESK_ENV ]]; then
 	source $DESK_ENV
