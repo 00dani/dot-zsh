@@ -17,9 +17,7 @@ zplugin $load mafredri/zsh-async
 zplugin $load rupa/z
 zplugin $load sindresorhus/pure
 
-# We have to zcompile c.zsh manually because pick-ice apparently runs before
-# atclone-ice during installation, and so can't find c.zsh to compile it.
-zplugin ice pick:c.zsh atpull:%atclone atclone:'dircolors -b LS_COLORS > c.zsh && zcompile c.zsh'
+zplugin ice nocompile:! pick:c.zsh atpull:%atclone atclone:'dircolors -b LS_COLORS > c.zsh'
 zplugin $load trapd00r/LS_COLORS
 
 zplugin ice silent wait:1 atload:_zsh_autosuggest_start
