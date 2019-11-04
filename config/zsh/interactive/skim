@@ -1,0 +1,6 @@
+#! zsh
+if [[ -f $XDG_DATA_HOME/zsh/skim.zsh ]]; then
+	source $XDG_DATA_HOME/zsh/skim.zsh
+else
+	bindkey '^R' history-incremental-search-backward
+fi
