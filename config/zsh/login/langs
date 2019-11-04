@@ -45,6 +45,6 @@ export -UT PYTHONPATH pythonpath
 # configure it explicitly.
 export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export PYENV_SHELL=zsh
-newbins+=($XDG_DATA_HOME/pyenv/shims)
+newbins+=($XDG_DATA_HOME/pyenv/shims $HOME/.poetry/bin)
 
 path=($newbins $path)
