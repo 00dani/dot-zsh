@@ -1,2 +1,5 @@
 setopt extended_glob
-for f in $ZDOTDIR/all/^*.zwc(N); source $f
+for f in $ZDOTDIR/all/^*.zwc(N); do
+	[[ ! -f $f.zwc ]] && zcompile $f
+	source $f
+done
