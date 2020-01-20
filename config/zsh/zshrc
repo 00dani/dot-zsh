@@ -1,8 +1,8 @@
-source $ZDOTDIR/zplugin
+source $ZDOTDIR/zinit
 for f in $ZDOTDIR/interactive/*(N); source $f
 
 zpcompinit && zpcdreplay
-([[ $ZPGLM[ZCOMPDUMP_PATH].zwc -nt $ZPGLM[ZCOMPDUMP_PATH] ]] || zcompile $ZPLGM[ZCOMPDUMP_PATH]) &!
+([[ $ZINIT[ZCOMPDUMP_PATH].zwc -nt $ZINIT[ZCOMPDUMP_PATH] ]] || zcompile $ZINIT[ZCOMPDUMP_PATH]) &!
 
 [[ -o login ]] && for f in $ZDOTDIR/interactive+login/*(N); source $f
 
