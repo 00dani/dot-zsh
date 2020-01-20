@@ -1,0 +1,6 @@
+#! zsh
+ZINIT_HOME=${XDG_CACHE_HOME:-~/.cache}/zsh/zinit
+if [[ -d $ZINIT_HOME/bin/zmodules/Src/zdharma ]]; then
+	module_path+=( $ZINIT_HOME/bin/zmodules/Src )
+	zmodload zdharma/zplugin
+fi

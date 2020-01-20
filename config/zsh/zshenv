@@ -1,1 +1,2 @@
-for f in $ZDOTDIR/all/*(N); source $f
+setopt extended_glob
+for f in $ZDOTDIR/all/^*.zwc(N); source $f
