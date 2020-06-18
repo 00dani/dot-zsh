@@ -18,7 +18,7 @@ if (( $+commands[rock] )); then
 fi
 
 # ruby
-newbins+=(~/.gem/ruby/*/bin(N))
+newbins+=(~/.gem/ruby/*/bin(N) /usr/local/opt/ruby/bin)
 
 # rust
 newbins+=(~/.cargo/bin)
