@@ -13,5 +13,3 @@ alias cdu=cd-gitroot
 
 # make sure ELinks can detect when it's in tmux
 alias elinks="STY= elinks"
-
-(( $+commands[hub] )) && alias git=hub
