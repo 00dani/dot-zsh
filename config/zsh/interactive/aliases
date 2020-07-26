@@ -1,5 +1,9 @@
 #! zsh
-alias ls='ls -F --color=auto'
+if (( $+commands[lsd] )); then
+	alias ls=lsd
+else
+	alias ls='ls -F --color=auto'
+fi
 alias lsl='ls -lh'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
