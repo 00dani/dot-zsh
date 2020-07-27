@@ -1,7 +1,7 @@
 #! zsh
-export TTC_WEATHER='Newcastle, NSW'
+export TTC_WEATHER='Sydney, NSW'
 export -UT TTC_REPOS ttc_repos ,
-ttc_repos=(~/PhpstormProjects)
+ttc_repos=(~/projects)
 
 if [[ -r $XDG_DATA_HOME/twitter/api.zsh ]]; then
 	source $XDG_DATA_HOME/twitter/api.zsh
@@ -9,4 +9,6 @@ if [[ -r $XDG_DATA_HOME/twitter/api.zsh ]]; then
 	export TTC_CONSUMER_SECRET=$twitter[consumer_secret]
 	export TTC_ACCESS_TOKEN=$twitter[access_token]
 	export TTC_ACCESS_TOKEN_SECRET=$twitter[access_secret]
+else
+	export TTC_APIKEYS=false
 fi
