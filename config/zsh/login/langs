@@ -21,7 +21,8 @@ fi
 newbins+=(~/.gem/ruby/*/bin(N) /usr/local/opt/ruby/bin)
 
 # rust
-newbins+=(~/.cargo/bin)
+export CARGO_HOME=$XDG_DATA_HOME/cargo
+newbins+=($CARGO_HOME/bin)
 
 # perl
 export -UT PERL_LOCAL_LIB_ROOT perl_local_lib_root
