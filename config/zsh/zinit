@@ -21,8 +21,7 @@ else
 	zinit $load sindresorhus/pure
 fi
 
-zinit ice nocompile:! pick:c.zsh atpull:%atclone atclone:'dircolors -b LS_COLORS > c.zsh'
-zinit $load trapd00r/LS_COLORS
+zinit pack:no-dir-color-swap for ls_colors
 
 zinit ice silent wait:1 atload:_zsh_autosuggest_start
 zinit $load zsh-users/zsh-autosuggestions
