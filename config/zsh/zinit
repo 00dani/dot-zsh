@@ -14,7 +14,12 @@ zinit $load willghatch/zsh-saneopt
 
 zinit $load mafredri/zsh-async
 zinit $load rupa/z
-zinit $load sindresorhus/pure
+
+if (( $+commands[starship] )); then
+	source <(starship init zsh --print-full-init)
+else
+	zinit $load sindresorhus/pure
+fi
 
 zinit ice nocompile:! pick:c.zsh atpull:%atclone atclone:'dircolors -b LS_COLORS > c.zsh'
 zinit $load trapd00r/LS_COLORS
