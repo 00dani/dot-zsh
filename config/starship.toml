@@ -31,7 +31,7 @@ symbol = " "
 symbol = " "
 
 [git_branch]
-format = "[$symbol$branch]($style)"
+format = "[$symbol$branch]($style) "
 style = "242"
 symbol = " "
 
@@ -61,6 +61,7 @@ symbol = " "
 symbol = " "
 
 [nodejs]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [package]
@@ -70,6 +71,7 @@ symbol = " "
 symbol = " "
 
 [php]
+format = "[$symbol($version )]($style)"
 symbol = " "
 
 [python]
