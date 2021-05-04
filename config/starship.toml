@@ -1,5 +1,13 @@
+[character]
+success_symbol = "[❯](bold purple)"
+vicmd_symbol = "[❮](bold purple)"
+
+[git_status]
+style = "218"
+
 # https://starship.rs/presets/#nerd-font-symbols
 [aws]
+disabled = true
 symbol = " "
 
 [conda]
@@ -9,6 +17,8 @@ symbol = " "
 symbol = " "
 
 [directory]
+truncate_to_repo = false
+style = "blue"
 read_only = " "
 
 [docker_context]
@@ -21,6 +31,8 @@ symbol = " "
 symbol = " "
 
 [git_branch]
+format = "[$symbol$branch]($style)"
+style = "242"
 symbol = " "
 
 [golang]
