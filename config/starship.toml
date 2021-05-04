@@ -35,6 +35,10 @@ format = "[$symbol$branch]($style)"
 style = "242"
 symbol = " "
 
+[gcloud]
+disabled = true
+symbol = " "
+
 [golang]
 symbol = " "
 
