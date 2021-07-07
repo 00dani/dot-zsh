@@ -17,6 +17,9 @@ zinit $load rupa/z
 
 if (( $+commands[starship] )); then
 	source <(starship init zsh --print-full-init)
+	autoload starship_pure_title_precmd starship_pure_title_preexec
+	precmd_functions+=(starship_pure_title_precmd)
+	preexec_functions+=(starship_pure_title_preexec)
 else
 	zinit $load sindresorhus/pure
 fi
