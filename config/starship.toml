@@ -5,6 +5,12 @@ vicmd_symbol = "[❮](bold purple)"
 [git_status]
 style = "218"
 
+[custom.task_count_pending]
+command = "task count rc.gc=off rc.verbose=nothing status:pending"
+when = "which task"
+symbol = " "
+description = "Count of pending Taskwarrior tasks"
+
 # https://starship.rs/presets/#nerd-font-symbols
 [aws]
 disabled = true
