@@ -5,6 +5,7 @@ fi
 
 if (( $+commands[lsd] )); then
 	alias ls=lsd
+	alias tree='lsd --tree'
 else
 	alias ls='ls -F --color=auto'
 fi
