@@ -6,7 +6,7 @@ vicmd_symbol = "[❮](bold purple)"
 style = "218"
 
 [custom.task_count_pending]
-command = "task count rc.gc=off rc.verbose=nothing status:pending"
+command = "task count rc.verbose=nothing rc.gc=0 status:pending"
 when = "which task"
 symbol = " "
 description = "Count of pending Taskwarrior tasks"
