@@ -92,5 +92,9 @@ symbol = " "
 [scala]
 symbol = " "
 
+[shlvl]
+disabled = false
+symbol = " "
+
 [swift]
 symbol = "ﯣ "
