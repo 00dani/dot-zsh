@@ -10,6 +10,10 @@ newbins+=(~/.go/bin)
 newbins+=(~/.cabal/bin ~/Library/Haskell/bin)
 export STACK_ROOT=$XDG_DATA_HOME/stack
 
+# o'caml
+export OPAMROOT=$XDG_DATA_HOME/opam
+[[ -f $OPAMROOT/opam-init/init.zsh ]] && source $OPAMROOT/opam-init/init.zsh
+
 # ooc
 if (( $+commands[rock] )); then
 	export -UT OOC_LIBS ooc_libs
