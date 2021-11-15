@@ -4,7 +4,7 @@ ZINIT[HOME_DIR]=$ZINIT_HOME
 ZINIT[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
 
 if [[ ! -f $ZINIT_HOME/bin/zinit.zsh ]]; then
-	git clone https://github.com/zdharma/zinit $ZINIT_HOME/bin
+	git clone https://github.com/zdharma-continuum/zinit $ZINIT_HOME/bin
 	zcompile $ZINIT_HOME/bin/zinit.zsh
 fi
 source $ZINIT_HOME/bin/zinit.zsh
@@ -35,4 +35,4 @@ zinit ice silent wait:1; zinit $load mollifier/cd-gitroot
 zinit ice silent wait:1; zinit $load micha/resty
 zinit ice silent wait:1; zinit $load supercrabtree/k
 
-zinit ice silent wait!1; zinit $load zdharma/fast-syntax-highlighting
+zinit ice silent wait!1; zinit $load zdharma-continuum/fast-syntax-highlighting
