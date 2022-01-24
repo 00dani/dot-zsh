@@ -22,7 +22,7 @@ if (( $+commands[rock] )); then
 fi
 
 # ruby
-newbins+=(~/.gem/ruby/*/bin(N) /usr/local/opt/ruby/bin)
+newbins+=(~/.gem/ruby/*/bin(N) /usr/local/opt/ruby/bin /usr/local/lib/ruby/gems/*/bin(N))
 
 # rust
 export CARGO_HOME=$XDG_DATA_HOME/cargo
