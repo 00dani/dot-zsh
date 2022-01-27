@@ -47,6 +47,7 @@ newbins+=($XDG_CONFIG_HOME/composer/vendor/bin)
 
 # python
 export -UT PYTHONPATH pythonpath
+newbins+=(~/Library/Python/*/bin(N))
 # pipenv already uses $XDG_DATA_HOME, but pyenv doesn't, so we need to
 # configure it explicitly.
 export PYENV_ROOT=$XDG_DATA_HOME/pyenv
