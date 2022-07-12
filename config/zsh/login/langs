@@ -3,8 +3,8 @@
 local -a newbins
 
 # go
-[[ -z $GOPATH ]] && export GOPATH=~/.go
-newbins+=(~/.go/bin)
+[[ -z $GOPATH ]] && export GOPATH=$XDG_DATA_HOME/go
+newbins+=($XDG_DATA_HOME/go/bin)
 
 # haskell
 newbins+=(~/.cabal/bin ~/Library/Haskell/bin)
