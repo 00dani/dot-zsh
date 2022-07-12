@@ -13,6 +13,13 @@ newbins+=($XDG_DATA_HOME/go/bin)
 newbins+=(~/.cabal/bin ~/Library/Haskell/bin)
 export STACK_ROOT=$XDG_DATA_HOME/stack
 
+# less
+# not exactly a 'lang' but still
+export LESSHISTFILE=$XDG_DATA_HOME/less/history
+
+# mysql
+export MYSQL_HISTFILE=$XDG_DATA_HOME/mysql/history
+
 # o'caml
 export OPAMROOT=$XDG_DATA_HOME/opam
 [[ -f $OPAMROOT/opam-init/init.zsh ]] && source $OPAMROOT/opam-init/init.zsh
@@ -51,6 +58,9 @@ export PHIVE_HOME=$XDG_DATA_HOME/phive
 # there you go, I guess.
 newbins+=($XDG_CONFIG_HOME/composer/vendor/bin)
 
+# postgres
+export PSQL_HISTORY=$XDG_DATA_HOME/psql/history
+
 # python
 export -UT PYTHONPATH pythonpath
 newbins+=(~/Library/Python/*/bin(N))
@@ -59,5 +69,11 @@ newbins+=(~/Library/Python/*/bin(N))
 export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export PYENV_SHELL=zsh
 newbins+=($XDG_DATA_HOME/pyenv/shims $HOME/.poetry/bin)
+
+# redis
+export REDISCLI_HISTFILE=$XDG_DATA_HOME/redis/rediscli_history
+
+# sqlite
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite/history
 
 path=($newbins $path)
