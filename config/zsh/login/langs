@@ -26,6 +26,9 @@ fi
 
 # ruby
 newbins+=(~/.gem/ruby/*/bin(N) /usr/local/opt/ruby/bin /usr/local/lib/ruby/gems/*/bin(N))
+export BUNDLE_USER_CONFIG=$XDG_CONFIG_HOME/bundle
+export BUNDLE_USER_CACHE=$XDG_CACHE_HOME/bundle
+export BUNDLE_USER_PLUGIN=$XDG_DATA_HOME/bundle
 
 # rust
 export CARGO_HOME=$XDG_DATA_HOME/cargo
