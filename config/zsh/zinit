@@ -24,7 +24,11 @@ else
 	zinit $load sindresorhus/pure
 fi
 
-zinit pack:no-dir-color-swap for ls_colors
+if (( $+commands[vivid] )); then
+	export LS_COLORS=$(vivid generate molokai)
+else
+	zinit pack:no-dir-color-swap for ls_colors
+fi
 
 zinit ice silent wait:1 atload:_zsh_autosuggest_start
 zinit $load zsh-users/zsh-autosuggestions
