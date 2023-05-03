@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 [character]
 success_symbol = "[❯](bold purple)"
 vicmd_symbol = "[❮](bold purple)"
@@ -11,10 +13,18 @@ when = "which task"
 symbol = " "
 description = "Count of pending Taskwarrior tasks"
 
-# https://starship.rs/presets/#nerd-font-symbols
+
+
+# https://starship.rs/presets/nerd-font.html
 [aws]
 disabled = true
-symbol = " "
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
 
 [conda]
 symbol = " "
@@ -36,6 +46,9 @@ symbol = " "
 [elm]
 symbol = " "
 
+[fossil_branch]
+symbol = " "
+
 [git_branch]
 format = "[$symbol$branch]($style) "
 style = "242"
@@ -48,8 +61,20 @@ symbol = " "
 [golang]
 symbol = " "
 
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = "⌘ "
+
 [hg_branch]
 symbol = " "
+
+[hostname]
+ssh_symbol = " "
 
 [java]
 symbol = " "
@@ -57,18 +82,65 @@ symbol = " "
 [julia]
 symbol = " "
 
+[lua]
+symbol = " "
+
 [memory_usage]
 symbol = " "
+
+[meson]
+symbol = "喝 "
 
 [nim]
 symbol = " "
 
 [nix_shell]
-symbol = " "
+symbol = " "
 
 [nodejs]
 format = "[$symbol($version )]($style)"
-symbol = " "
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "﯑ "
+Gentoo = " "
+HardenedBSD = "ﲊ "
+Illumos = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = " "
+openSUSE = " "
+OracleLinux = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = " "
+Solus = "ﴱ "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = " "
 
 [package]
 symbol = " "
@@ -80,11 +152,17 @@ symbol = " "
 format = "[$symbol($version )]($style)"
 symbol = " "
 
+[pijul_channel]
+symbol = "🪺 "
+
 [python]
-symbol = " "
+symbol = " "
+
+[rlang]
+symbol = "ﳒ "
 
 [ruby]
-symbol = " "
+symbol = " "
 
 [rust]
 symbol = " "
@@ -95,6 +173,9 @@ symbol = " "
 [shlvl]
 disabled = false
 symbol = " "
+
+[spack]
+symbol = "🅢 "
 
 [swift]
 symbol = "ﯣ "
