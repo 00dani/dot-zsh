@@ -22,3 +22,5 @@ alias cdu=cd-gitroot
 
 # make sure ELinks can detect when it's in tmux
 alias elinks="STY= elinks"
+
+alias bubectl="HTTPS_PROXY=localhost:8888 kubectl"
