@@ -28,4 +28,5 @@ fi
 
 # The real zsh config lives in XDG_CONFIG_HOME! ;)
 : ${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}
+[[ $ZDOTDIR = $HOME ]] && ZDOTDIR=$XDG_CONFIG_HOME/zsh
 source $ZDOTDIR/zshenv
