@@ -169,6 +169,7 @@ symbol = " "
 symbol = "🪺 "
 
 [python]
+format = "[$symbol($version)]($style) "
 symbol = " "
 
 [rlang]
