@@ -6,6 +6,9 @@ format = '$all$kubernetes$line_break$jobs$battery$time$status$os$container$shell
 success_symbol = "[❯](bold purple)"
 vicmd_symbol = "[❮](bold purple)"
 
+[cmd_duration]
+format = '[ $duration]($style) '
+
 [git_status]
 style = "218"
 
