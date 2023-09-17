@@ -28,6 +28,10 @@ symbol = "  "
 [buf]
 symbol = " "
 
+[bun]
+format = "[$symbol$version]($style) "
+symbol = " "
+
 [c]
 symbol = " "
 
