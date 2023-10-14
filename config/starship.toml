@@ -4,7 +4,7 @@ format = '$all$kubernetes$line_break$jobs$battery$time$status$os$container$shell
 
 [character]
 success_symbol = "[❯](bold purple)"
-vicmd_symbol = "[❮](bold purple)"
+vimcmd_symbol = "[❮](bold purple)"
 
 [cmd_duration]
 format = '[ $duration]($style) '
