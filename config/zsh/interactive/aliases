@@ -6,21 +6,18 @@ fi
 if (( $+commands[lsd] )); then
 	alias ls=lsd
 	alias tree='lsd --tree'
-else
-	alias ls='ls -F --color=auto'
 fi
+
 alias lsl='ls -lh'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
 alias pseudo=sudo
+
 if (( $+commands[xdg-open] )); then
 	alias ]=xdg-open
 else
 	alias ]=open
 fi
+
 alias cdu=cd-gitroot
 
 # make sure ELinks can detect when it's in tmux
 alias elinks="STY= elinks"
-
-alias bubectl="HTTPS_PROXY=localhost:8888 kubectl"
