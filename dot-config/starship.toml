@@ -163,6 +163,7 @@ format = "[$symbol($version)]($style) "
 symbol = "󰏗 "
 
 [perl]
+format = "[$symbol($version)]($style) "
 symbol = " "
 
 [php]
