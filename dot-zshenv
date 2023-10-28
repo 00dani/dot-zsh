@@ -1,3 +1,4 @@
+#! zsh
 # Initialise each of the XDG vars to their default values if they're unset.
 : ${XDG_CACHE_HOME:=~/.cache}
 : ${XDG_CONFIG_HOME:=~/.config}
