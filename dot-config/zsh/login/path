@@ -2,7 +2,6 @@
 path=(/usr/local/bin $path)
 if (( $+commands[brew] )); then
 	path=(
-		/usr/local/opt/coreutils/libexec/gnubin
 		/usr/local/sbin
 		~/Library/Python/*/bin(N)
 		/usr/local/share/google-cloud-sdk/bin
