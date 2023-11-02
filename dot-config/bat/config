@@ -1,7 +1,7 @@
 # This is `bat`s configuration file. Each line either contains a comment or
 # a command-line option that you want to pass to `bat` by default. You can
 # run `bat --help` to get a list of all possible configuration options.
---tabs=2
+--tabs 2
 --theme "Monokai Extended"
---italic-text=always
+--italic-text always
 --map-syntax "**/git/config*:Git Config"
