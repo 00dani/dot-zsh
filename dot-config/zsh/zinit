@@ -23,6 +23,7 @@ else
 fi
 
 zinit wait lucid light-mode for \
+	hlissner/zsh-autopair \
 	mollifier/cd-gitroot \
 	atinit"dot-zsh-compinit" \
 		zdharma-continuum/fast-syntax-highlighting \
