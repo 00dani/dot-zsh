@@ -1,13 +1,11 @@
 #! zsh
-typeset -A ZINIT
-ZINIT[HOME_DIR]=$ZINIT_HOME
-ZINIT[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
 
-if [[ ! -f $ZINIT_HOME/bin/zinit.zsh ]]; then
-	git clone https://github.com/zdharma-continuum/zinit $ZINIT_HOME/bin
-	zcompile $ZINIT_HOME/bin/zinit.zsh
+[[ ! -d $ZINIT[HOME_DIR] ]] && mkdir -p $ZINIT[HOME_DIR]
+if [[ ! -d $ZINIT[BIN_DIR]/.git ]]; then
+	git clone https://github.com/zdharma-continuum/zinit.git $ZINIT[BIN_DIR]
+	zcompile $ZINIT[BIN_DIR]/zinit.zsh
 fi
-source $ZINIT_HOME/bin/zinit.zsh
+source $ZINIT[BIN_DIR]/zinit.zsh
 load=light
 
 zinit $load willghatch/zsh-saneopt

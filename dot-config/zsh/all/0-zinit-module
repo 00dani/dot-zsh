@@ -1,6 +1,10 @@
 #! zsh
-ZINIT_HOME=${XDG_CACHE_HOME:-~/.cache}/zsh/zinit
-if [[ -e $ZINIT_HOME/bin/zmodules/Src/zdharma/zplugin.so ]]; then
-	module_path+=( $ZINIT_HOME/bin/zmodules/Src )
-	zmodload zdharma/zplugin
+typeset -A ZINIT
+ZINIT[HOME_DIR]=${XDG_CACHE_HOME:-~/.cache}/zinit
+ZINIT[BIN_DIR]=${ZINIT[HOME_DIR]}/zinit.git
+ZINIT[ZCOMPDUMP_PATH]=${XDG_CACHE_HOME:-~/.cache}/zsh/zcompdump
+
+if [[ -e ${ZINIT[HOME_DIR]}/module/Src/zdharma_continuum/zinit.so ]]; then
+	module_path+=( ${ZINIT[HOME_DIR]}/module/Src )
+	zmodload zdharma_continuum/zinit
 fi
