@@ -28,11 +28,11 @@ else
 	zinit pack:no-dir-color-swap for ls_colors
 fi
 
-zinit ice silent wait:1 atload:_zsh_autosuggest_start
-zinit $load zsh-users/zsh-autosuggestions
-
-zinit ice blockf; zinit $load zsh-users/zsh-completions
-
-zinit ice silent wait:1; zinit $load mollifier/cd-gitroot
-
-zinit ice silent wait!1; zinit $load zdharma-continuum/fast-syntax-highlighting
+zinit wait lucid light-mode for \
+	mollifier/cd-gitroot \
+	atinit"dot-zsh-compinit" \
+		zdharma-continuum/fast-syntax-highlighting \
+	atload"_zsh_autosuggest_start" \
+		zsh-users/zsh-autosuggestions \
+	blockf atpull'zinit creinstall -q .' \
+		zsh-users/zsh-completions
