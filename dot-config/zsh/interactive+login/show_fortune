@@ -1,6 +1,0 @@
-#! zsh
-(( $+commands[fortune] )) || return
-for say in ponysay cowsay cat; (( $+commands[$say] )) && break
-[[ $say = cowsay ]] && say=(cowsay -n)
-[[ $say = ponysay ]] && say=(ponysay -W $(( COLUMNS - 1 )) -b unicode)
-fortune $XDG_CACHE_HOME/sav-quotes/quotes | $say
