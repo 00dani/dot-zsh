@@ -20,7 +20,7 @@ dot-zsh-compinit() {
 	return 0
 }
 
-source $ZDOTDIR/zinit
+source $ZDOTDIR/plugins.zsh
 for f in $ZDOTDIR/interactive/^*.zwc(N); source $f
 
 [[ -o login ]] && for f in $ZDOTDIR/interactive+login/^*.zwc(N); source $f
