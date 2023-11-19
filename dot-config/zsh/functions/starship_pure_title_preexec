@@ -1,3 +1,0 @@
-#! zsh
-autoload prompt_pure_set_title
-prompt_pure_set_title 'ignore-escape' "$PWD:t: $2"
