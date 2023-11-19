@@ -11,7 +11,6 @@ load=light
 zinit $load willghatch/zsh-saneopt
 
 zinit $load mafredri/zsh-async
-zinit $load rupa/z
 
 zinit ice depth'1'
 zinit $load romkatv/powerlevel10k
