@@ -16,11 +16,9 @@ zinit $load rupa/z
 zinit ice depth'1'
 zinit $load romkatv/powerlevel10k
 
-if (( $+commands[vivid] )); then
-	export LS_COLORS=$(vivid generate molokai)
-else
-	zinit pack:no-dir-color-swap for ls_colors
-fi
+vivid_theme=molokai
+(( $+commands[vivid] )) && zinit ice atclone'./build.sh' atpull'%atclone' run-atpull
+zinit $load ryanccn/vivid-zsh
 
 zinit wait lucid light-mode for \
 	hlissner/zsh-autopair \
