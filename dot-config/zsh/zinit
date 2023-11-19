@@ -34,7 +34,5 @@ zinit $load zsh-users/zsh-autosuggestions
 zinit ice blockf; zinit $load zsh-users/zsh-completions
 
 zinit ice silent wait:1; zinit $load mollifier/cd-gitroot
-zinit ice silent wait:1; zinit $load micha/resty
-zinit ice silent wait:1; zinit $load supercrabtree/k
 
 zinit ice silent wait!1; zinit $load zdharma-continuum/fast-syntax-highlighting
