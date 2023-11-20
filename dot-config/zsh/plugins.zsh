@@ -1,30 +1,22 @@
 #! zsh
+: ${ZIM_HOME:=$XDG_CACHE_HOME/zim}
+: ${ZIM_CONFIG_FILE:=$XDG_CONFIG_HOME/zsh/zimrc.zsh}
+zstyle :zim:completion dumpfile ${XDG_CACHE_HOME:-~/.cache}/zsh/zcompdump.zsh
 
-[[ ! -d $ZINIT[HOME_DIR] ]] && mkdir -p $ZINIT[HOME_DIR]
-if [[ ! -d $ZINIT[BIN_DIR]/.git ]]; then
-	git clone https://github.com/zdharma-continuum/zinit.git $ZINIT[BIN_DIR]
-	zcompile $ZINIT[BIN_DIR]/zinit.zsh
+# Sure, I typically run MacOS, which uses a case-insensitive filesystem, but
+# that doesn't mean I have to like it. ;)
+zstyle ':zim:*' case-sensitivity sensitive
+
+zstyle :zim:termtitle         hooks   preexec precmd
+zstyle :zim:termtitle:preexec format '${${(A)=1}[1]}'
+zstyle :zim:termtitle:precmd  format '%1~'
+
+if [[ ! -e $ZIM_HOME/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o $ZIM_HOME/zimfw.zsh https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  zcompile $ZIM_HOME/zimfw.zsh
 fi
-source $ZINIT[BIN_DIR]/zinit.zsh
-load=light
+if [[ ! $ZIM_HOME/init.zsh -nt $ZIM_CONFIG_FILE ]]; then
+  source $ZIM_HOME/zimfw.zsh init -q
+fi
 
-zinit $load willghatch/zsh-saneopt
-
-zinit $load mafredri/zsh-async
-
-zinit ice depth'1'
-zinit $load romkatv/powerlevel10k
-
-vivid_theme=molokai
-(( $+commands[vivid] )) && zinit ice atclone'./build.sh' atpull'%atclone' run-atpull
-zinit $load ryanccn/vivid-zsh
-
-zinit wait lucid light-mode for \
-	hlissner/zsh-autopair \
-	mollifier/cd-gitroot \
-	atinit"dot-zsh-compinit" \
-		zdharma-continuum/fast-syntax-highlighting \
-	atload"_zsh_autosuggest_start" \
-		zsh-users/zsh-autosuggestions \
-	blockf atpull'zinit creinstall -q .' \
-		zsh-users/zsh-completions
+source $ZIM_HOME/init.zsh
