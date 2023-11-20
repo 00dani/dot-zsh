@@ -1,34 +1,17 @@
 #! zsh
-_zsh_highlight() {}
-zle-line-init() {}
-zle -N zle-line-init
-
-autoload -Uz select-word-style
-select-word-style shell
-
-# Allow S-Tab to backtrack through the completion menu.
-bindkey $terminfo[kcbt] reverse-menu-complete
 
 # Tweaks to vi mode:
-bindkey '^?' backward-delete-char # backspace over the start of Insert mode
 bindkey 'jj' vi-cmd-mode # inoremap jj <Esc>
+bindkey -M vicmd K run-help # 'keywordprg'
 
 # Backward-kill long paths one directory at a time.
-bindkey '^W' backward-kill-word
-zstyle ':zle:backward-kill-word' word-style unspecified
-zstyle ':zle:backward-kill-word' word-chars ' /'
+autoload -U backward-kill-word-match
+zle -N backward-kill-word-match
+bindkey '^W' backward-kill-word-match
+zstyle ':zle:backward-kill-word-match' word-style unspecified
+zstyle ':zle:backward-kill-word-match' word-chars ' /'
 
 # Make ^Z resume your suspended job if there is one.
 autoload fancy-ctrl-z
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-
-__fzf-z() {
-	z -l | tac | cut -c 12- | fzf --preview 'tree -FCL 2 {}'
-}
-fzf-z() {
-	LBUFFER+="$(__fzf-z)"
-	zle redisplay
-}
-zle -N fzf-z
-bindkey '^G' fzf-z
