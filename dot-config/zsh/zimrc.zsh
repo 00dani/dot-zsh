@@ -5,7 +5,6 @@ zmodule mafredri/zsh-async --source async.zsh
 
 zmodule input
 zmodule run-help
-zmodule magic-enter
 zmodule termtitle
 zmodule utility
 
