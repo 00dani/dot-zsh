@@ -19,6 +19,11 @@ zeval-if-installed() {
 zmodule willghatch/zsh-saneopt --source saneopt.plugin.zsh
 zmodule environment
 
+# Tell Zim about my own configuration. This has two benefits:
+# - My personal functions/ directory will be added to fpath, and
+# - Zim will automatically zcompile anything with a .zsh extension for me! :)
+zmodule $ZDOTDIR
+
 zmodule mafredri/zsh-async --source async.zsh
 
 zmodule input
