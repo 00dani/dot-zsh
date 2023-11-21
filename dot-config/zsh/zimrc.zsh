@@ -35,6 +35,7 @@ zmodule zsh-users/zsh-autosuggestions
 
 (( ${+commands[brew]} )) && zmodule homebrew
 zeval-if-installed direnv 'direnv hook zsh'
+zeval-if-installed scmpuff 'scmpuff init --shell=zsh'
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
