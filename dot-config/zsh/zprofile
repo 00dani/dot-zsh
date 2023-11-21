@@ -1,2 +1,2 @@
 #! zsh
-for f in $ZDOTDIR/login/^*.zwc(N); source $f
+for f in $ZDOTDIR/login/*.zsh(N); source $f
