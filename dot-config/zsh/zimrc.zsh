@@ -35,13 +35,15 @@ zmodule zsh-users/zsh-autosuggestions
 
 (( ${+commands[brew]} )) && zmodule homebrew
 zeval-if-installed direnv 'direnv hook zsh'
-zeval-if-installed zoxide 'zoxide init zsh'
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
-# completion *must* be sourced after all modules that add completion definitions.
+# completion *must* be sourced after all modules that add completion definitions to fpath.
 zmodule completion
+
+# Initialise Zoxide after compinit, because it calls compdef if available.
+zeval-if-installed zoxide 'zoxide init zsh'
 
 # Fish-style syntax highlighting as you type, making the Zsh experience much more friendly!
 zmodule zdharma-continuum/fast-syntax-highlighting
