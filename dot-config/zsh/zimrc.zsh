@@ -1,3 +1,21 @@
+# Rather than writing eval "$(something init)" and having it called on every
+# shell initialisation, zeval will use Zim's --on-pull hook to run the command
+# once and cache the output, as well as zcompile it. Pass a descriptive, unique
+# name as the first argument and the Zsh command you'd normally write inside
+# $() as the second. For example, to hook Direnv into your shell:
+#   zeval direnv 'direnv hook zsh'
+zeval() {
+  zmodule https://git.00dani.me/00dani/null --name zeval-$1 --on-pull "$2 >! init.zsh"
+}
+
+# Hook a command into Zsh, only if that command is installed. Pass the
+# command's name as the first argument and the commandline you want to evaluate
+# as the second. Works in the same way as zeval, but silently omits the module
+# from your setup if the necessary command is not installed.
+zeval-if-installed() {
+  (( ${+commands[$1]} )) && zeval "$@"
+}
+
 zmodule willghatch/zsh-saneopt --source saneopt.plugin.zsh
 zmodule environment
 
@@ -9,14 +27,15 @@ zmodule termtitle
 zmodule utility
 
 zmodule romkatv/powerlevel10k --use degit
-zmodule ryanccn/vivid-zsh --cmd 'vivid_theme=molokai source {}/vivid-zsh.plugin.zsh' --on-pull '(( ${+commands[vivid]} )) && ./build.sh'
+zeval-if-installed vivid 'echo export LS_COLORS=${(qqq)"$(vivid generate molokai)"}'
 
 zmodule hlissner/zsh-autopair
 zmodule mollifier/cd-gitroot --fpath . --autoload cd-gitroot
-zmodule kiesman99/zim-zoxide
 zmodule zsh-users/zsh-autosuggestions
 
 (( ${+commands[brew]} )) && zmodule homebrew
+zeval-if-installed direnv 'direnv hook zsh'
+zeval-if-installed zoxide 'zoxide init zsh'
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
@@ -26,3 +45,5 @@ zmodule completion
 
 # Fish-style syntax highlighting as you type, making the Zsh experience much more friendly!
 zmodule zdharma-continuum/fast-syntax-highlighting
+
+unfunction zeval zeval-if-installed
