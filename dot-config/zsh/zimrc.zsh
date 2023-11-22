@@ -53,5 +53,7 @@ zeval-if-installed zoxide 'zoxide init zsh'
 
 # Fish-style syntax highlighting as you type, making the Zsh experience much more friendly!
 zmodule zdharma-continuum/fast-syntax-highlighting
+# Hacks! The fast-theme function provides its own caching, so we only want to call it when the theme actually updates.
+zmodule catppuccin/zsh-fsh --name 'catppuccin-for-fsh' --on-pull 'echo "fast-theme $PWD/themes/catppuccin-mocha.ini && echo >! $PWD/init.zsh" >! init.zsh'
 
 unfunction zeval zeval-if-installed
