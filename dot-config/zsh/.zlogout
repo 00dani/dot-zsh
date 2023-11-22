@@ -1,1 +1,1 @@
-zlogout
+zlogout.zsh
