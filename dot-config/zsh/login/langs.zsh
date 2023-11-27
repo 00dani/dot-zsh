@@ -2,6 +2,15 @@
 
 local -a newbins
 
+# asdf
+export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdf/asdfrc
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
+# Don't add asdf's directories to the command path, because evaluating its
+# version resolution every time you call a tool is really slow. Instead just
+# configure asdf to respect XDG base directories, then rely on Direnv to
+# resolve paths properly for each project, as described here:
+# https://github.com/zimfw/asdf#how-to-configure-asdf-to-work-with-the-direnv-installed-with-my-system-package-manager
+
 # docker
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 
