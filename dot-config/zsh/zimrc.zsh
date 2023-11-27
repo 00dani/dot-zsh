@@ -39,6 +39,7 @@ zmodule mollifier/cd-gitroot --fpath . --autoload cd-gitroot
 zmodule zsh-users/zsh-autosuggestions
 
 (( ${+commands[brew]} )) && zmodule homebrew
+zeval-if-installed atuin 'atuin init zsh --disable-up-arrow'
 zeval-if-installed direnv 'direnv hook zsh'
 zeval-if-installed scmpuff 'scmpuff init --shell=zsh'
 
