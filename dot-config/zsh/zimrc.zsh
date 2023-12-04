@@ -39,6 +39,8 @@ zmodule junegunn/fzf --root shell --use degit --source completion.zsh --source k
 
 zmodule hlissner/zsh-autopair
 zmodule mollifier/cd-gitroot --fpath . --autoload cd-gitroot
+zmodule unixorn/git-extra-commands
+zmodule xPMo/zsh-toggle-command-prefix
 zmodule zsh-users/zsh-autosuggestions
 
 (( ${+commands[brew]} )) && zmodule homebrew
