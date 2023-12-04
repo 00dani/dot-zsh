@@ -32,7 +32,7 @@ zmodule termtitle
 zmodule utility
 
 zmodule romkatv/powerlevel10k --use degit
-zeval-if-installed vivid 'echo export LS_COLORS=${(qqq)"$(vivid generate molokai)"}'
+zeval-if-installed vivid 'echo export LS_COLORS=${(qqq)"$(vivid generate catppuccin-mocha)"}'
 
 zmodule fzf --name zimfw-fzf
 zmodule junegunn/fzf --root shell --use degit --source completion.zsh --source key-bindings.zsh
