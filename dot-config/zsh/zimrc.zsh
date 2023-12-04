@@ -34,6 +34,9 @@ zmodule utility
 zmodule romkatv/powerlevel10k --use degit
 zeval-if-installed vivid 'echo export LS_COLORS=${(qqq)"$(vivid generate molokai)"}'
 
+zmodule fzf --name zimfw-fzf
+zmodule junegunn/fzf --root shell --use degit --source completion.zsh --source key-bindings.zsh
+
 zmodule hlissner/zsh-autopair
 zmodule mollifier/cd-gitroot --fpath . --autoload cd-gitroot
 zmodule zsh-users/zsh-autosuggestions
