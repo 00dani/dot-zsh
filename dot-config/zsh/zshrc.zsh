@@ -10,17 +10,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Optimised compinit taking advantage of zinit's completion handling, as well
-# as compiling the resulting zcompdump file. Have zinit call this once
-# everything is loaded using an atload ice.
-dot-zsh-compinit() {
-	[[ -d $ZINIT[ZCOMPDUMP_PATH] ]] || mkdir -p ${ZINIT[ZCOMPDUMP_PATH]:h}
-	zicompinit || return $?
-	zicdreplay || return $?
-	([[ $ZINIT[ZCOMPDUMP_PATH].zwc -nt $ZINIT[ZCOMPDUMP_PATH] ]] || zcompile $ZINIT[ZCOMPDUMP_PATH]) &!
-	return 0
-}
-
 source $ZDOTDIR/plugins.zsh
 for f in $ZDOTDIR/interactive/*.zsh(N); source $f
 
