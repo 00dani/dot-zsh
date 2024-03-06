@@ -1,19 +1,16 @@
 # Rather than writing eval "$(something init)" and having it called on every
-# shell initialisation, zeval will use Zim's --on-pull hook to run the command
-# once and cache the output, as well as zcompile it. Pass a descriptive, unique
-# name as the first argument and the Zsh command you'd normally write inside
-# $() as the second. For example, to hook Direnv into your shell:
-#   zeval direnv 'direnv hook zsh'
-zeval() {
-  zmodule https://git.00dani.me/00dani/null --name zeval-$1 --on-pull "$2 >! init.zsh"
-}
-
-# Hook a command into Zsh, only if that command is installed. Pass the
-# command's name as the first argument and the commandline you want to evaluate
-# as the second. Works in the same way as zeval, but silently omits the module
-# from your setup if the necessary command is not installed.
-zeval-if-installed() {
-  (( ${+commands[$1]} )) && zeval "$@"
+# shell initialisation, zmodule-eval will run the given command once and
+# zcompile its output, which is then sourced. Naturally this is vastly more
+# efficient. Pass the external command's name as the first argument and the
+# full Zsh commandline you'd normally write inside $() as the second. For
+# example, to hook Direnv into your shell:
+#   zmodule-eval direnv 'direnv hook zsh'
+# https://github.com/zimfw/zimfw/issues/528#issuecomment-1949609155
+zmodule-eval() {
+  local -r ztarget=${2//[^[:alnum:]]/-}.zsh
+  zmodule custom-${1} --use mkdir --if-command ${1} \
+      --cmd "if [[ ! {}/${ztarget} -nt \${commands[${1}]} ]]; then ${2} >! {}/${ztarget}; zcompile -UR {}/${ztarget}; fi" \
+      --source ${ztarget}
 }
 
 zmodule willghatch/zsh-saneopt --source saneopt.plugin.zsh
@@ -32,7 +29,7 @@ zmodule termtitle
 zmodule utility
 
 zmodule romkatv/powerlevel10k --use degit
-zeval-if-installed vivid 'echo export LS_COLORS=${(qqq)"$(vivid generate catppuccin-mocha)"}'
+zmodule-eval vivid 'echo export LS_COLORS=${(qqq)"$(vivid generate catppuccin-mocha)"}'
 
 zmodule fzf --name zimfw-fzf
 zmodule junegunn/fzf --root shell --use degit --source completion.zsh --source key-bindings.zsh
@@ -44,9 +41,9 @@ zmodule xPMo/zsh-toggle-command-prefix
 zmodule zsh-users/zsh-autosuggestions
 
 (( ${+commands[brew]} )) && zmodule homebrew
-zeval-if-installed atuin 'atuin init zsh --disable-up-arrow'
-zeval-if-installed direnv 'direnv hook zsh'
-zeval-if-installed scmpuff 'scmpuff init --shell=zsh'
+zmodule-eval atuin 'atuin init zsh --disable-up-arrow'
+zmodule-eval direnv 'direnv hook zsh'
+zmodule-eval scmpuff 'scmpuff init --shell=zsh'
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
@@ -55,11 +52,11 @@ zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 
 # Initialise Zoxide after compinit, because it calls compdef if available.
-zeval-if-installed zoxide 'zoxide init zsh'
+zmodule-eval zoxide 'zoxide init zsh'
 
 # Fish-style syntax highlighting as you type, making the Zsh experience much more friendly!
 zmodule zdharma-continuum/fast-syntax-highlighting
 # Hacks! The fast-theme function provides its own caching, so we only want to call it when the theme actually updates.
 zmodule catppuccin/zsh-fsh --name 'catppuccin-for-fsh' --on-pull 'echo "fast-theme $PWD/themes/catppuccin-mocha.ini && echo >! $PWD/init.zsh" >! init.zsh'
 
-unfunction zeval zeval-if-installed
+unfunction zmodule-eval
