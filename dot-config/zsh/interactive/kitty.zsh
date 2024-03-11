@@ -4,3 +4,7 @@ if [[ -n $KITTY_INSTALLATION_DIR ]]; then
     kitty-integration
     unfunction kitty-integration
 fi
+
+if (( $+commands[kitten] )); then
+		alias ssh='kitten ssh'
+fi
