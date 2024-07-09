@@ -5,6 +5,8 @@ if (( $+commands[brew] )); then
 		/usr/local/sbin
 		~/Library/Python/*/bin(N)
 		/usr/local/share/google-cloud-sdk/bin
+		/opt/local/bin
+		/opt/local/sbin
 		$path
 	)
 fi
