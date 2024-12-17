@@ -23,4 +23,4 @@ alias mmv='noglob zmv -W'
 # make sure ELinks can detect when it's in tmux
 alias elinks="STY= elinks"
 
-alias dco='docker-compose'
+alias dco='docker compose'
